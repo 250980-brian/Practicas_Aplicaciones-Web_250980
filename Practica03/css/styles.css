@@ -20,6 +20,10 @@ body{
     padding: 50px;*/
 }
 
+/* ============================= */
+/* NAVEGACIÓN */
+/* ============================= */
+
 nav {
     position: fixed;
     top: 0;
@@ -29,10 +33,16 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(15, 23, 42, 0.45);
-    backdrop-filter: blur(15px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    background:
+        rgba(15, 23, 42, 0.45);
+    backdrop-filter:
+        blur(15px);
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.12);
+
     z-index: 1000;
+
     transition: 0.3s;
 }
 
@@ -42,14 +52,19 @@ nav h2 {
 
 nav ul {
     list-style: none;
+
     display: flex;
+
     gap: 25px;
 }
 
 nav a {
     color: white;
+
     text-decoration: none;
+
     font-weight: bold;
+
     transition: 0.3s;
 }
 
@@ -58,38 +73,66 @@ nav a:hover {
 }
 
 
-/* ================================ */
+
+/* ============================= */
 /* PARALLAX GENERAL */
-/* ===================================== */ 
+/* ============================= */
 
 .parallax {
     min-height: 100vh;
+
     background-size: cover;
+
     background-position: center;
+
     background-repeat: no-repeat;
+
     background-attachment: fixed;
+
     display: flex;
+
     align-items: center;
+
     justify-content: center;
+
     padding: 80px 20px;
+
     position: relative;
 }
+
 
 /* CAPA OSCURA */
+
 .parallax::before {
     content: "";
+
     position: absolute;
+
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.38);
+
+    background:
+        rgba(0, 0, 0, 0.38);
 }
 
+
 /* CONTENIDO SOBRE EL FONDO */
+
 .parallax > * {
     position: relative;
+
     z-index: 2;
 }
 
-
+/* ================ 
+== Solo el primer parallax (portada) ==
+ ================*/
+ #inicio{
+    min-height: 45px;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 90px 5% 50px 7%;
+    background-position: center center;
+ }
 
 /* ================================ */
 /*BACKGROUNDS HD */
@@ -148,43 +191,55 @@ nav a:hover {
         rgba(0, 0, 0, 0.25);
 }
 
-/* Configuración de la tarjeta horizontal */
+/* ============================= */
+/* HERO */
+/* ============================= */
+
 .hero-card {
-    display: flex;
-    flex-direction: row;        /* Coloca imagen y texto lado a lado */
-    align-items: center;        /* Centra verticalmente los elementos */
-    justify-content: center;
-    gap: 35px;                  /* Espacio de separación entre la foto y el texto */
-    max-width: 800px;           /* Ampliamos el ancho de la tarjeta */
-    width: 90%;
-    padding: 40px;
-    text-align: left;           /* Alinea todo el texto a la izquierda */
+    max-width: 700px;
+
+    padding: 45px;
+
+    text-align: center;
 }
 
-/* Alineación del bloque de texto interno */
-.hero-text {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;    /* Alinea el título, párrafos y botón a la izquierda */
-}
-
-/* Ajustes de la imagen */
-.profile-img {
+.perfil {
     width: 180px;
+
     height: 180px;
-    flex-shrink: 0;             /* Evita que la foto se aplaste si el texto es largo */
+
     object-fit: cover;
+
     border-radius: 50%;
-    box-shadow: 0px 0px 20px 10px rgba(43, 117, 167, 0.36);
+
+    border:
+        5px solid white;
+
+    box-shadow:
+        0 10px 35px
+        rgba(0, 0, 0, 0.35);
 }
 
-/* Ajustes para la cita/frase */
+.hero-card h1 {
+    font-size: 3rem;
+
+    margin-bottom: 8px;
+}
+
+.hero-card p {
+    font-size: 1.2rem;
+}
+
 blockquote {
-    margin: 15px 0;
-    max-width: 100%;
-    font-size: 1.1rem;
+    margin: 25px auto;
+
+    max-width: 500px;
+
+    font-size: 1.3rem;
+
     font-style: italic;
 }
+
 
 /* ================================ */
 /* BOTÓN */
@@ -299,6 +354,12 @@ blockquote {
     max-width: 1200px;
     margin: auto;
 }
+
+.cinco {
+    grid-template-columns:
+        repeat(5, 1fr);
+}
+
 
 /* ======================== */
 /* IMÁGENES */

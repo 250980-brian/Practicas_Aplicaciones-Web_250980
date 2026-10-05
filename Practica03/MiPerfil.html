@@ -106,7 +106,7 @@
 
        <div class="grid">
 
-        <article>
+        <article class="card">
             <h3>🎓 Terminar mi carrera</h3>
             <p>
                 Concluir mis estudios y fortalecer
@@ -114,7 +114,7 @@
             </p>
         </article>
 
-        <article>
+        <article class="card">
             <h3>💻 Ser desarrollador</h3>
             <p>
                 Trabajar en proyectos de software 
@@ -122,7 +122,7 @@
             </p>
         </article>
 
-        <article>
+        <article class="card">
             <h3>🌎 Viajar</h3>
             <p>
                 Conocer otras ciudades, culturas
@@ -141,31 +141,31 @@
         </div>
        </section>
 
-   <section id="hobbies">
+   <section id="hobbies" class="seccion solido-3">
 
     <h2>🎨 Lo que disfruto hacer</h2>
 
-    <div>
-        <article>
+    <div class="grid cinco">
+        <article class="card">
             <h3>💻 Programar</h3>
             <p>Crear soluciones.</p>
         </article>
-        <article>
+        <article class="card">
             <h3>🎮 Videojuegos</h3>
             <p>Explorar mundos digitales.</p>
         </article>
 
-        <article>
+        <article class="card">
             <h3>🎧 Música</h3>
             <p>Escuchar mis canciones favoritas y descubrir nuevos artistas.</p>
         </article>
 
-        <article>
+        <article class="card">
             <h3>📚 Leer</h3>
             <p>Sumergirme en historias de ficción.</p>
         </article>
 
-        <article>
+        <article class="card">
             <h3>✈️ Viajar</h3>
             <p>Conocer nuevos lugares.</p>
         </article>
@@ -181,25 +181,38 @@
         </div>
        </section>
 
-   <section id="favoritos">
+   <section id="favoritos" class="seccion solido-4">
 
     <h2>⭐ Mis favoritos</h2>
 
-    <div>
+    <div class="grid">
 
-        <article>
+        <article class="card">
             <h3>🎬 Pelicula favorita</h3>
+
+            <img src="/Practica03/assets/images/3msc.jpg"
+                    alt="Pelicula favorita">
+
             <p>Mi película favorita es "3 metros sobre el cielo".</p>
         </article>
 
-        <article>
+        <article class="card">
             <h3>🎵 Canción favorita</h3>
             <p>Mi canción favorita es "Thriller" de Michael Jackson.</p>
+            <img src="/Practica03/assets/images/pormusic.jpg"
+                    alt="Canción favorita">
+            <audio controls>
+                <source src="/Practica03/assets/audio/Michael Jackson - Thriller (Official 4K Video)(MP3_160K).mp3" type="audio/mpeg">
+            </audio>
+
         </article>
 
-        <article>
+        <article class="card">
             <h3>📚 Libro favorito</h3>
-            <p>Mi libro favorito es Percy Jackson.</p>
+            <p>
+                <img src="/Practica03/assets/images/libro.jpg">
+                Mi libro favorito es Percy Jackson y la maldicion del Titan.
+            </p>
         </article>
     </div>
    </section>
@@ -353,34 +366,22 @@
 
 
             <a href="https://www.youtube.com/"
-               target="_blank"
-               aria-label="YouTube">
+   target="_blank"
+   rel="noopener noreferrer"
+   aria-label="YouTube">
 
-                <svg viewBox="0 0 24 24">
+    <svg viewBox="0 0 24 24">
+        <!-- Cuerpo de YouTube ajustado a escala 24x24 -->
+        <path fill="currentColor"
+              d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/>
+        
+        <!-- Triángulo de reproducción con color adaptado para mantener contraste -->
+        <polygon points="9.545,15.568 15.818,12 9.545,8.432" fill="#0f172a"/>
+    </svg>
 
-                    <path fill="currentColor"
-                          d="M21 7.5
-                          c-.2-1.4-1.2-2.5-2.6-2.7
-                          C16.4 4.5 12 4.5 12 4.5
-                          s-4.4 0-6.4.3
-                          C4.2 5 3.2 6.1 3 7.5
-                          2.7 9 2.7 12 2.7 12
-                          s0 3 .3 4.5
-                          c.2 1.4 1.2 2.5 2.6 2.7
-                          2 .3 6.4.3 6.4.3
-                          s4.4 0 6.4-.3
-                          c1.4-.2 2.4-1.3 2.6-2.7
-                          .3-1.5.3-4.5.3-4.5
-                          s0-3-.3-4.5z"/>
+    <span>YouTube</span>
 
-                    <polygon points="10,9 16,12 10,15"
-                             fill="white"/>
-
-                </svg>
-
-                <span>YouTube</span>
-
-            </a>
+</a>
 
         </div>
 
