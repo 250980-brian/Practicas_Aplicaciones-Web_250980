@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Mi perfil de estudiante">
-    <title>Brian Isael Ramirez Cortes @ T.S.U. en Desarrollo de Software Multiplataforma</title>
+    <meta name="description" content="Mi primera página web personal">
+    <meta name="author"
+          content="Brian Isael Ramirez Cortes">
+
+    <title>Mi Primera Página Web</title>
     <link id="mi-favicon" rel="icon" href="assets/images/perfil.png" type="image/png">
      
     <link rel="stylesheet" href="css/styles.css">
@@ -13,17 +16,20 @@
    <!-- ============== -->
    <!-- NAVEGACIÓN -->
    <!-- ============== -->
+  <nav id="navbar">
 
-   <nav id="menu"> <!-- Etiqueta de semantica con el atributo id -->
-        <ul> <!-- Unordered list, Lista desordenada -->
+        <h2>🚀 Mi Mundo</h2>
+
+        <ul>
             <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#acerca-de-mi">Acerca de mí</a></li>
+            <li><a href="#sobre-mi">Sobre mí</a></li>
             <li><a href="#aspiraciones">Aspiraciones</a></li>
             <li><a href="#hobbies">Hobbies</a></li>
             <li><a href="#favoritos">Favoritos</a></li>
-            <li><a href="#redes-sociales">Redes Sociales</a></li>
+            <li><a href="#redes">Redes</a></li>
         </ul>
-   </nav>
+
+    </nav>
 
     <!-- ============== -->
     <!-- HERO /PARALLAX 1 -->
@@ -31,55 +37,64 @@
 
     <header id="inicio" class="parallax parallax1">
     
-    <div class="glass hero-card">
+    <div class="hero-card glass">
         <!-- Imagen a la izquierda -->
         <img src="assets/images/yo.jpg" 
-             alt="Fotografia de perfil" 
-             class="profile-img">
+             alt="Perfil" 
+             class="perfil">
 
         <!-- Contenido de texto agrupado a la derecha -->
         <div class="hero-text">
-            <h1>Hola soy Brian 👋</h1>
-            <p>Estudiante | Apasionado por la tecnología | Soñador</p>
-
-            <blockquote>"La disciplina de hoy construye el éxito de mañana."</blockquote>
-
-            <a href="#acerca-de-mi" class="boton">Conóceme</a>
+             <!-- 2. El contenedor con todo el texto (derecha) -->
+            <div class="hero-info">
+                <h1>Hola, soy Brian 👋</h1>
+                <p>Estudiante | Apasionado por la tecnología | Soñador</p>
+                <blockquote>"La disciplina de hoy construye el éxito del mañana."</blockquote>
+                <a href="#seccion" class="boton">Conóceme ↓</a>
+            </div>
         </div>
-    </div>
 
 </header>
     
-   <!--  Acerca de mí -->
-    <section class="seccion solido-1">
-        <h2>👤 Acerca de mí</h2>
+   <section id="sobre-mi"
+             class="seccion solido-1">
+
+        <h2>👤 Sobre mí</h2>
+
         <div class="contenedor">
+
             <div class="card">
-            <p>
-                Soy un estudiante de Tecnologías de la Información y me interesa aprender sobre desarrollo web, programación, diseño y nuevas tecnologias.
-            </p>
 
-            <p>
-                Me gustaresolver problemas, crear cosas nuevas y desarrollar proyectos que puedan ser utiles.
-            </p>
-        </div>
+                <p>
+                    Soy estudiante de Tecnologías de la Información
+                    y me interesa aprender sobre desarrollo web,
+                    programación, diseño y nuevas tecnologías.
+                </p>
 
-        <div class="datos">
+                <p>
+                    Me gusta resolver problemas, crear cosas nuevas
+                    y desarrollar proyectos que puedan ser útiles.
+                </p>
 
-            <article>
-                <h3>🎂 Edad</h3>
-                <p>Tengo 19 años.</p>
-            </article>
-            <article>
-                <h3>📍 Ciudad</h3>
-                <p> Xicotepec, Puebla</p>
-            </article>
+            </div>
 
-            <article>
-                <h3>🎓 Ocupación</h3>
-                <p>Estudiante</p>
-            </article>
+            <div class="datos">
 
+                <article>
+                    <h3>🎂 Edad</h3>
+                    <p>19 años</p>
+                </article>
+
+                <article>
+                    <h3>📍 Ciudad</h3>
+                    <p>Xicotepec, Puebla</p>
+                </article>
+
+                <article>
+                    <h3>🎓 Ocupación</h3>
+                    <p>Estudiante</p>
+                </article>
+                
             <article>
                 <h3>☕ Extra</h3>
                 <p>Me gusta el café, leer libros y escuchar música.</p>
@@ -94,6 +109,12 @@
        <section class="parallax parallax2">
         <div class="glass frase">
             <h2>🌱 Mis aspiraciones</h2>
+
+            <p>
+                Quiero crecer profesionalmente,
+                aprender nuevas tecnologías
+                y participar en proyectos interesantes.
+            </p>
         </div>
        </section>
        
@@ -138,6 +159,11 @@
        <section class="parallax parallax3">
         <div class="glass frase">
             <h2>🎮 Mis hobbies</h2>
+
+            <p>
+                Programar, escuchar música, jugar, leer,
+                aprender y conocer nuevos lugares.
+            </p>
         </div>
        </section>
 
@@ -178,50 +204,68 @@
        <section class="parallax parallax4">
         <div class="glass frase">
             <h2>⭐ Mis favoritos</h2>
+
+            <p>
+                Algunas cosas que forman parte
+                de mis gustos personales.
+            </p>
+
         </div>
        </section>
 
    <section id="favoritos" class="seccion solido-4">
 
-    <h2>⭐ Mis favoritos</h2>
+   
+        <h2>⭐ Mis favoritos</h2>
+        <p class="favoritos-intro">
+            Descubre mis historias y canciones favoritas. Selecciona una tarjeta para explorar su contenido</p>
 
-    <div class="grid">
+        <div class="carrusel" aria-label="Carrusel de Favoritos">
+            <button class="carrusel-flecha" id="anterior" type="button" aria-label="Favorito Anterior"> &#10094; </button>
+        <div class="carrusel-ventana">
+            <div class="carrusel-pista" id="pista">
+                <button class="favorito-card" type="button" data-tipo="video" data-src="/Practica03/assets/media/trailer.MP4"
+                data-titulo="🎬 Mi pelicula favorita: 3 Metros Sobre el Cielo">
+                    <img src="/Practica03/assets/images/3msc.jpg" alt="Portada de 3 metros sobre el cielo" loading="lazy">
+                    <span class="favorito-info"><strong>3 Metros sobre el Cielo</strong><small>ver trailes MP4</small></span>
+                </button>
+                
+                <button class="favorito-card" type="button" data-tipo="audio" data-src="/Practica03/assets/media/cancion.mp3"
+                data-titulo=" 🎵 Mi cancion favorita">
+                    <img src="/Practica03/assets/images/pormusic.jpg" alt="Portada de la canción favorita" loading="lazy">
+                    <span class="favorito-info"><strong>Mi cancion favorita</strong><small> Escuchar MP3</small></span>
+                </button>
 
-        <article class="card">
-            <h3>🎬 Pelicula favorita</h3>
+                <button class="favorito-card" type="button" data-tipo="pdf" data-src="/Practica03/assets/media/libro.pdf"
+                data-titulo=" 📚Mi libro favorito: Un capitulo">
+                    <img src="/Practica03/assets/images/libro.jpg" alt="Portada del libro favorito" loading="lazy">
+                    <span class="favorito-info"><strong>Mi libro favorito</strong><small> Leer capitulo PDF</small></span>
+                </button>
+            </div>
+        </div>
+        <button class="carrusel-flecha" id="siguiente" type="button" aria-label="Favorito Siguiente"> &#10095; </button>
+        </div>
+        <div class="carrusel-indicadores" id="indicadores" aria-label="Seleccionar favorito"></div>
+    </section>
 
-            <img src="/Practica03/assets/images/3msc.jpg"
-                    alt="Pelicula favorita">
-
-            <p>Mi película favorita es "3 metros sobre el cielo".</p>
-        </article>
-
-        <article class="card">
-            <h3>🎵 Canción favorita</h3>
-            <p>Mi canción favorita es "Thriller" de Michael Jackson.</p>
-            <img src="/Practica03/assets/images/pormusic.jpg"
-                    alt="Canción favorita">
-            <audio controls>
-                <source src="/Practica03/assets/audio/Michael Jackson - Thriller (Official 4K Video)(MP3_160K).mp3" type="audio/mpeg">
-            </audio>
-
-        </article>
-
-        <article class="card">
-            <h3>📚 Libro favorito</h3>
-            <p>
-                <img src="/Practica03/assets/images/libro.jpg">
-                Mi libro favorito es Percy Jackson y la maldicion del Titan.
-            </p>
-        </article>
+    <!-- Modal para reproducción de multimedia -->
+    <div id="modal-favoritos" class="modal-favoritos" hidden>
+        <div class="modal-planel">
+            <div class="modal-cabecera">
+                <h2 id="modal-titulo">Título del recurso</h2>
+                <button id="cerrar-modal" class="modal-cerrar" aria-label="Cerrar modal">&times;</button>
+            </div>
+            <div id="modal-contenido" class="modal-contenido"></div>
+        </div>
     </div>
-   </section>
+    
 
-    <!-- ============================= -->
+        <!-- ============================= -->
     <!-- REDES SOCIALES -->
     <!-- ============================= -->
 
-    <section id="redes" class="seccion redes">
+    <section id="redes"
+             class="seccion redes">
 
         <h2>🌐 Mis redes sociales</h2>
 
@@ -229,9 +273,9 @@
             Puedes encontrarme en:
         </p>
 
-        <div class="redes-sociales" >
+        <div class="redes-sociales">
 
-            <a href="https://github.com/"
+            <a href="https://github.com/250980-brian"
                target="_blank"
                aria-label="GitHub">
 
@@ -263,7 +307,7 @@
             </a>
 
 
-            <a href="https://www.instagram.com/"
+            <a href="http://instagram.com/bri_c0709/"
                target="_blank"
                aria-label="Instagram">
 
@@ -297,7 +341,7 @@
             </a>
 
 
-            <a href="https://www.facebook.com/"
+            <a href="https://www.facebook.com/profile.php?id=61554168650541"
                target="_blank"
                aria-label="Facebook">
 
@@ -313,7 +357,7 @@
             </a>
 
 
-            <a href="https://www.tiktok.com/"
+            <a href="https://www.tiktok.com/@bmcuwu3?lang=es-419"
                target="_blank"
                aria-label="TikTok">
 
@@ -334,7 +378,7 @@
             </a>
 
 
-            <a href="https://www.linkedin.com/"
+            <a href="https://www.linkedin.com/in/brian-isael-ramirez-cortes-b14a49442/"
                target="_blank"
                aria-label="LinkedIn">
 
@@ -365,43 +409,52 @@
             </a>
 
 
-            <a href="https://www.youtube.com/"
-   target="_blank"
-   rel="noopener noreferrer"
-   aria-label="YouTube">
+            <a href="https://www.youtube.com/@BrianIsaelRamirezCortes"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube">
 
-    <svg viewBox="0 0 24 24">
-        <!-- Cuerpo de YouTube ajustado a escala 24x24 -->
-        <path fill="currentColor"
-              d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/>
-        
-        <!-- Triángulo de reproducción con color adaptado para mantener contraste -->
-        <polygon points="9.545,15.568 15.818,12 9.545,8.432" fill="#0f172a"/>
-    </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="120" height="85">
+                <defs>
+                    <mask id="yt-cutout">
+                        <!-- Fondo blanco para mostrar el logo -->
+                        <rect x="0" y="0" width="576" height="512" fill="#FFFFFF" />
+                        <!-- Triángulo negro para hacer transparente la parte central -->
+                            <path d="M232 337.521V174.479L374.821 256 232 337.521z" fill="#000000" />
+                    </mask>
+                </defs>
+                <!-- Cuerpo del logo en color blanco con el recorte aplicado -->
+            <path fill="#FFFFFF" mask="url(#yt-cutout)" d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305z"/>
+            </svg>
 
-    <span>YouTube</span>
+                <span>YouTube</span>
 
-</a>
+            </a>
 
         </div>
 
     </section>
 
-    <!-- ================
-     <!-- FOOTER -->
-      <!-- ================ -->
 
-      <footer>
+    <!-- ============================= -->
+    <!-- FOOTER -->
+    <!-- ============================= -->
+
+    <footer>
+
         <p>
-            Mi primer página web
+            Mi Primera Página Web
         </p>
 
         <p id="anio"></p>
 
         <a href="#inicio">
-            Volver al inicio
+            ↑ Volver al inicio
         </a>
 
-      </footer>
+    </footer>
+
+
+    <script src="/Practica03/js/app.js"></script>
+
 </body>
-</html>
