@@ -1,27 +1,3 @@
-<<<<<<< HEAD
-/* Configurar General de la página */
-
-*{
-    box-sizing: border-box;
-}
-
-html{
-    scroll-behavior: smooth;
-}
-
-body{
-    margin: 0px;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #0f172a;
-    color: #ccc;
-    line-height: 1.6;
-    /*border-color: red;
-    border-style:solid;
-    border-width: 5px;
-    padding: 50px;*/
-}
-
-=======
 /* ============================= */
 /* CONFIGURACIÓN GENERAL */
 /* ============================= */
@@ -51,7 +27,6 @@ body {
 /* NAVEGACIÓN */
 /* ============================= */
 
->>>>>>> Practica03
 nav {
     position: fixed;
     top: 0;
@@ -61,11 +36,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-<<<<<<< HEAD
-    background: rgba(15, 23, 42, 0.45);
-    backdrop-filter: blur(15px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-=======
+
     background:
         rgba(15, 23, 42, 0.45);
     backdrop-filter:
@@ -73,7 +44,7 @@ nav {
     border-bottom:
         1px solid
         rgba(255, 255, 255, 0.12);
->>>>>>> Practica03
+
     z-index: 1000;
     transition: 0.3s;
 }
@@ -84,28 +55,20 @@ nav h2 {
 
 nav ul {
     list-style: none;
-<<<<<<< HEAD
-    display: flex;
-=======
+
 
     display: flex;
 
->>>>>>> Practica03
     gap: 25px;
 }
 
 nav a {
     color: white;
-<<<<<<< HEAD
-    text-decoration: none;
-    font-weight: bold;
-=======
 
     text-decoration: none;
 
     font-weight: bold;
 
->>>>>>> Practica03
     transition: 0.3s;
 }
 
@@ -113,15 +76,9 @@ nav a:hover {
     color: #67e8f9;
 }
 
-<<<<<<< HEAD
-/* PARALLAX GENERAL */
-/* ===================================== */ 
-=======
-
 /* ============================= */
 /* PARALLAX GENERAL */
 /* ============================= */
->>>>>>> Practica03
 
 .parallax {
     min-height: 100vh;
@@ -136,27 +93,12 @@ nav a:hover {
     position: relative;
 }
 
-<<<<<<< HEAD
 /* CAPA OSCURA */
-=======
-
-/* CAPA OSCURA */
-
->>>>>>> Practica03
 .parallax::before {
     content: "";
     position: absolute;
     inset: 0;
-<<<<<<< HEAD
-    background-color: rgba(0, 0, 0, 0.38);
-}
 
-/* CONTENIDO SOBRE EL FONDO */
-.parallax > * {
-    position: relative;
-    z-index: 2;
-}
-=======
     background:
         rgba(0, 0, 0, 0.38);
 }
@@ -921,4 +863,3 @@ body.modal-abierto {
     transform: translateY(-4px);
     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
 }
->>>>>>> Practica03
