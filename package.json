@@ -1,0 +1,24 @@
+{
+  "name": "practicas_aplicaciones-web_250980",
+  "version": "1.0.0",
+  "description": "Periodo: Septiembre - Diciembre 2026",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/250980-brian/Practicas_Aplicaciones-Web_250980.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/250980-brian/Practicas_Aplicaciones-Web_250980/issues"
+  },
+  "homepage": "https://github.com/250980-brian/Practicas_Aplicaciones-Web_250980#readme",
+  "dependencies": {
+    "gh-pages": "^6.3.0"
+  }
+}
