@@ -1,0 +1,867 @@
+/* ============================= */
+/* CONFIGURACIÓN GENERAL */
+/* ============================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background: #0f172a;
+    color: #CCC;
+    line-height: 1.6;
+}
+
+
+/* ============================= */
+/* NAVEGACIÓN */
+/* ============================= */
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 14px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background:
+        rgba(15, 23, 42, 0.45);
+    backdrop-filter:
+        blur(15px);
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.12);
+
+    z-index: 1000;
+    transition: 0.3s;
+}
+
+nav h2 {
+    color: white;
+}
+
+nav ul {
+    list-style: none;
+
+
+    display: flex;
+
+    gap: 25px;
+}
+
+nav a {
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #67e8f9;
+}
+
+/* ============================= */
+/* PARALLAX GENERAL */
+/* ============================= */
+
+.parallax {
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+    position: relative;
+}
+
+/* CAPA OSCURA */
+.parallax::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        rgba(0, 0, 0, 0.38);
+}
+
+
+/* CONTENIDO SOBRE EL FONDO */
+
+.parallax > * {
+    position: relative;
+
+    z-index: 2;
+}
+
+/* ================ 
+== Solo el primer parallax (portada) ==
+ ================*/
+ #inicio{
+    min-height: 45px;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 90px 5% 50px 7%;
+    background-position: center center;
+ }
+
+/* ================================ */
+/*BACKGROUNDS HD */
+/* ===================================== */
+
+.parallax1 {
+    background-image: 
+    url("../assets/images/fondo1.jpg");
+}
+
+.parallax2 {
+    background-image: 
+    url("../assets/images/fondo2.jpg");
+}
+
+.parallax3 {
+    background-image: 
+    url("../assets/images/fondo3.jpg");
+}
+
+.parallax4 {
+    background-image: 
+    url("../assets/images/fondo4.jpg");
+}
+
+
+.profile-img {
+    width: clamp(180px, 20vmin, 300px);
+    height: clamp(180px, 20vmin, 300px);
+
+    object-fit: cover;
+    border-radius: 50%;
+
+    display: block;
+
+    box-shadow: 0px 0px 10px 30px rgba(43, 117, 167, 0.363);
+}
+
+/* ============================= */
+/* GLASS EFFECT */
+/* ============================= */
+
+.glass {
+    background:
+        rgba(20, 30, 50, 0.38);
+
+    color: white;
+
+    backdrop-filter:
+        blur(14px);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.25);
+
+    border-radius:
+        24px;
+
+    box-shadow:
+        0 25px 50px
+        rgba(0, 0, 0, 0.25);
+}
+
+
+/* ============================= */
+/* HERO */
+/* ============================= */
+
+.hero-card {
+    max-width: 900px; /* Ancho suficiente para imagen + texto lado a lado */
+    width: 75%;
+    padding: 40px;
+    
+    /* Disposición Flexbox */
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center; /* Alinea verticalmente al centro */
+    justify-content: center;
+    gap: 35px; /* Separación entre la imagen y el bloque de texto */
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+
+/* Ajustes de la imagen de perfil dentro del flex */
+.perfil {
+    width: 160px;
+    height: 160px;
+    min-width: 160px; /* Evita que la imagen se reduzca o se aplaste */
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid white;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
+}
+
+/* Estilos del contenedor de texto */
+.hero-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinea los elementos (incluido el botón) a la izquierda */
+}
+
+.hero-info h1 {
+    font-size: 2.5rem;
+    margin: 0 0 10px 0;
+}
+
+.hero-info p {
+    margin: 0 0 15px 0;
+}
+
+.hero-info blockquote {
+    margin: 10px 0 20px 0;
+    font-size: 1.1rem;
+    text-align: left;
+}
+
+.hero-card h1 {
+    font-size: 3rem;
+
+    margin-bottom: 8px;
+}
+
+.hero-card p {
+    font-size: 1.2rem;
+}
+
+blockquote {
+    margin: 25px auto;
+
+    max-width: 500px;
+
+    font-size: 1.3rem;
+
+    font-style: italic;
+}
+
+
+/* ============================= */
+/* BOTÓN */
+/* ============================= */
+
+.boton {
+    display: inline-block;
+
+    margin-top: 15px;
+
+    padding:
+        14px 30px;
+
+    background:
+        rgba(255, 255, 255, 0.9);
+
+    color: #223255;
+
+    border-radius:
+        30px;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.boton:hover {
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 12px 25px
+        rgba(0, 0, 0, 0.25);
+}
+
+
+/* ============================= */
+/* SECCIONES */
+/* ============================= */
+
+.seccion {
+    min-height: 80vh;
+
+    padding:
+        100px 8%;
+}
+
+.seccion h2 {
+    text-align: center;
+
+    font-size: 2.4rem;
+
+    margin-bottom: 45px;
+}
+
+
+/* ============================= */
+/* COLORES SÓLIDOS ALTERNADOS */
+/* ============================= */
+
+.solido-1 {
+    background:
+        #1E2D24;
+    color: #2A3B30;
+}
+
+.solido-2 {
+    background:
+       #1C1008;
+
+    color: #2B1B10;
+}
+
+.solido-3 {
+    background:
+        #0B1326;
+    color: #162238
+}
+
+.solido-4 {
+    background:
+        #4E6E42;
+
+    color: #5E8251;
+}
+
+.redes {
+    background:
+        #181D23;
+}
+
+
+/* ============================= */
+/* CONTENEDORES */
+/* ============================= */
+
+.contenedor {
+    max-width: 1100px;
+
+    margin: auto;
+}
+
+.card {
+    background:
+        rgba(255, 255, 255, 0.88);
+
+    color: #222;
+
+    padding: 30px;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 12px 30px
+        rgba(0, 0, 0, 0.12);
+
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform:
+        translateY(-8px);
+
+    box-shadow:
+        0 20px 40px
+        rgba(0, 0, 0, 0.18);
+}
+
+
+/* ============================= */
+/* DATOS PERSONALES */
+/* ============================= */
+
+.datos {
+    margin-top: 30px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+.datos article {
+    padding: 20px;
+
+    text-align: center;
+
+    background: white;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 10px 20px
+        rgba(0, 0, 0, 0.08);
+}
+
+
+/* ============================= */
+/* GRID */
+/* ============================= */
+
+.grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+
+    max-width: 1200px;
+
+    margin: auto;
+}
+
+.cinco {
+    grid-template-columns:
+        repeat(5, 1fr);
+}
+
+
+/* ============================= */
+/* IMÁGENES */
+/* ============================= */
+
+.card img {
+    width: 100%;
+
+    max-height: 280px;
+
+    object-fit: cover;
+
+    border-radius: 15px;
+}
+
+
+/* ============================= */
+/* FRASES PARALLAX */
+/* ============================= */
+
+.frase {
+    max-width: 750px;
+
+    padding: 40px;
+
+    text-align: center;
+}
+
+.frase h2 {
+    font-size: 2.5rem;
+}
+
+.frase p {
+    font-size: 1.3rem;
+}
+
+
+/* ============================= */
+/* REDES SOCIALES */
+/* ============================= */
+
+.redes {
+    text-align: center;
+}
+
+.redes-sociales {
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 20px;
+}
+
+.redes-sociales a {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 8px;
+
+    min-width: 120px;
+
+    padding: 18px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            145deg,
+            #1e293b,
+            #334155
+        );
+
+    border-radius: 18px;
+
+    text-decoration: none;
+
+    box-shadow:
+        0 12px 25px
+        rgba(0, 0, 0, 0.2);
+
+    transition: 0.3s;
+}
+
+.redes-sociales a:hover {
+    transform:
+        translateY(-8px)
+        scale(1.05);
+
+    background:
+        linear-gradient(
+            145deg,
+            #2563eb,
+            #7c3aed
+        );
+}
+
+.redes-sociales svg {
+    width: 36px;
+
+    height: 36px;
+}
+
+
+/* ============================= */
+/* FOOTER */
+/* ============================= */
+
+footer {
+    text-align: center;
+
+    padding: 40px;
+
+    background:
+        #020617;
+
+    color: white;
+}
+
+footer a {
+    color:
+        #67e8f9;
+
+    text-decoration: none;
+}
+
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+
+@media (max-width: 900px) {
+
+    .grid,
+    .cinco,
+    .datos {
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    nav ul {
+        display: none;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .grid,
+    .cinco,
+    .datos {
+        grid-template-columns:
+            1fr;
+    }
+
+    .hero-card h1 {
+        font-size: 2rem;
+    }
+
+    .parallax {
+        background-attachment: scroll;
+    }
+}
+
+body {
+    color: #e2e8f0
+}
+
+.solido-1, .solido-3, .redes {
+    color: #17253b;
+}
+
+.solido-2, .solido-4 {
+    color: #f8fafc;
+}
+
+.seccion h2 {
+    font-size: clamp(1.55rem, 2.5vw, 2.4rem);
+}
+
+.seccion {
+    scroll-margin-top: 75px;
+}
+
+#inicio {
+    min-height: 85vh;
+}
+
+.hero-card {
+    width: min(46%, 690px);
+    min-width: 0;
+    padding: 22px 25px;
+    gap: 22px;
+    background: rgba(10, 19, 36, 0.58);
+}
+
+/* ============================= */
+/* CARRUSEL */
+/* ============================= */
+.favoritos-intro{
+    text-align: center;
+    max-width: 6500px;
+    margin: -20px auto 30px;
+    color: #cbd5e1;
+}
+
+.carrusel {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    max-width: 850px;
+    margin:  auto;
+}
+
+.carrusel-ventana{
+    overflow: hidden;
+    flex: 1;
+    min-width: 0;
+    border-radius: 22px;
+}
+
+.carrusel-pista{
+    display: flex;
+    transition: transform .45s ease;
+}
+
+.favorito-card{
+    flex: 0 0 100%;
+    min-width: 0;
+    border: 1px solid #475569;
+    background: #293b55;
+    color: #fff;
+    border-radius: 22px;
+    overflow: hidden;
+    cursor: pointer;
+    padding: 0px;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    min-height: 310px;
+}
+
+.favorito-card img{
+    /* width: 100%; */
+    height: 220px;
+    width: 220px;
+    object-fit: cover;
+}
+
+.favorito-icono {
+    font-size: 6rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 16px;
+}
+
+.favorito-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 16px;
+}
+
+.favorito-info strong {
+    font-size: 1.25rem;
+}
+
+.favorito-info small {
+    font-size: .95rem;
+    color: #dbeafe;
+}
+
+.carrusel-flecha {
+    border: 1px solid #64748b;
+    border-radius: 50%;
+    background: #334155;
+    color: #fff;
+    width: 43px;
+    height: 43px;
+    flex-shrink: 0;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.carrusel-flecha:hover {
+    background: #2563eb;
+}
+
+.carrusel-indicadores {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 22px;
+}
+
+.carrusel-indicadores button {
+    border: 0;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #94a3b8;
+    cursor: pointer;
+}
+
+.carrusel-indicadores button.activo {
+    background: #38bdf8;
+    transform: scale(1.25);
+}
+
+/* ============================= */
+/* MODALES */
+/* ============================= */
+
+.modal-favoritos [hidden] {
+    display: none;
+}
+
+.modal-favoritos {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    background: rgba(2, 6, 23, .96);
+    display: flex;
+    justify-content: stretch;
+    align-items: stretch;
+    padding: 12px;
+}
+
+.modal-planel {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 0;
+    border: 1px solid #475569;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #0f172a;
+}
+
+.modal-cabecera {
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    border-bottom: 1px solid #334155;
+}
+
+.modal-cabecera h2 {
+    margin: 0;
+    font-size: clamp(1rem, 2vw, 1.35rem);
+}
+
+/* Bloquear scroll cuando el modal está abierto */
+body.modal-abierto {
+    overflow: hidden;
+}
+
+/* Ocultar el modal cuando tiene el atributo hidden */
+.modal-favoritos[hidden] {
+    display: none !important;
+}
+
+/* Área donde se insertan los videos, audios e iframe */
+.modal-contenido {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: #020617;
+    min-height: 0;
+}
+
+/* Estilos ajustados para los reproductores interactivos */
+.modal-contenido video,
+.modal-contenido iframe {
+    width: 100%;
+    height: 100%;
+    max-height: 75vh;
+    border: none;
+    border-radius: 8px;
+}
+
+.modal-contenido audio {
+    width: 80%;
+    max-width: 500px;
+}
+
+/* Botón de cierre (X) del modal */
+.modal-cerrar {
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    font-size: 1.8rem;
+    cursor: pointer;
+    line-height: 1;
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: 0.2s;
+}
+
+.modal-cerrar:hover {
+    color: #fff;
+    background: #334155;
+}
+
+/* Forzar a que el SVG de YouTube respete el tamaño uniforme de las demás redes */
+.redes-sociales svg {
+    width: 36px;
+    height: 36px;
+}
+
+.boton:hover {
+    background: #2563eb; /* Cambia el fondo a azul */
+    color: #ffffff;      /* Cambia el texto a blanco */
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+}
