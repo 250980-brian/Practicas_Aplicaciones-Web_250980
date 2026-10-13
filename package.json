@@ -4,7 +4,7 @@
   "description": "Periodo: Septiembre - Diciembre 2026",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "deploy":"npx gh-pages -d ."
   },
   "repository": {
     "type": "git",
