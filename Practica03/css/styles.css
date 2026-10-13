@@ -321,31 +321,33 @@ blockquote {
 
 .solido-1 {
     background:
-        #f8fafc;
+        #1E2D24;
+    color: #2A3B30;
 }
 
 .solido-2 {
     background:
-        #111827;
+       #1C1008;
 
-    color: white;
+    color: #2B1B10;
 }
 
 .solido-3 {
     background:
-        #e0f2fe;
+        #0B1326;
+    color: #162238
 }
 
 .solido-4 {
     background:
-        #1e293b;
+        #4E6E42;
 
-    color: white;
+    color: #5E8251;
 }
 
 .redes {
     background:
-        #f1f5f9;
+        #181D23;
 }
 
 
