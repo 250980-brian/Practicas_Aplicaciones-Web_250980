@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MecaGest: Formulario de Reagistro de Nuevos Usuarios - M250917 </title>
+    <title>MecaGest: Formulario de Reagistro de Nuevos Usuarios - M250980 </title>
 </head>
 <body>
     <header>
@@ -31,17 +31,17 @@
             <br>
             
             <label for = "nombre"> Nombre: </label>
-            <input type ="text" id="nombre" placeholder="Dulce Marbella" required>
+            <input type ="text" id="nombre" placeholder="Brian Isael" required>
 
             <br>
 
             <label for = "AppPaterno"> Apellido Paterno: </label>
-            <input type="text" id="AppPaterno" placeholder="Tolentino" required>
+            <input type="text" id="AppPaterno" placeholder="Ramirez" required>
 
             <br>  
 
             <label for ="AppMaterno"> Apellido Materno: </label>
-            <input type="text" id="AppMaterno" placeholder="García"> 
+            <input type="text" id="AppMaterno" placeholder="Cortes"> 
 
             <br>    
 
@@ -65,12 +65,12 @@
                 <legend> Datos de contacto </legend>
 
             <label for = "correo"> Correo Electrónico: </label>
-            <input type ="email" id="correo" placeholder="dulcegr891@gmail.com"> 
+            <input type ="email" id="correo" placeholder="brianisael03@gmail.com"> 
 
             <br>
 
             <label for = "telefono"> Num. Telefonico: </label>
-            <input type ="tel" id="telefono" placeholder="(52) 782-100-44-10">
+            <input type ="tel" id="telefono" placeholder="(52) 764-100-04-46">
 
             <br>
 
@@ -83,7 +83,7 @@
             <fieldset>
                 <legend>Datos de Acceso</legend>
                 <label for="usuario"> Usuario: </label>
-                <input type="text" id="usuario" placeholder="dulcegarcia" required>
+                <input type="text" id="usuario" placeholder="brianisael" required>
 
                 <br>
 
@@ -123,8 +123,118 @@
                 <input type="text" id="codigoPostal" placeholder="78000">
 
             </fieldset>
+ <input type="checkbox" value="validado">
+Acepto términos y condiciones del uso de la plataforma MecaGest.
 
+<br><br>
+
+<input type="submit" value="Enviar Solicitud">
+<input type="reset" value="Limpiar Formularios">
             
+        </form>
+
+        <br>
+        <br> 
+
+        <form> <!-- Elementos input que usaremos más adelante -->
+    <fieldset>
+        <legend>Visualización de Citas por Mes:</legend>
+
+        <label for="mesCitas">Por favor elige el mes:</label>
+        <input type="month" id="mesCitas">
+
+        <button id="verCitas">Ver Citas</button>
+
+        <br>
+
+        <h4>Las citas programadas para el mes elegido son:</h4>
+
+        <br>
+
+        <table style="border: 1px solid black">
+            <tr>
+                <th style="border: 1px solid black">No.</th>
+                <th style="border: 1px solid black">Nombre</th>
+                <th style="border: 1px solid black">Descripción</th>
+                <th style="border: 1px solid black">Fecha Programada</th>
+                <th style="border: 1px solid black">Estatus Actual</th>
+            </tr>
+
+            <tr>
+                <td style="border: 1px solid black">1.</td>
+                <td style="border: 1px solid black">
+                    Cita de entrega de unidad reparada con el cliente: Mauricio Mejía,
+                    Unidad: Volkswagen, Jetta 2020
+                </td>
+                <td style="border: 1px solid black">
+                    Se realizó un cambio de bujías, la unidad está lista para entrega
+                </td>
+                <td style="border: 1px solid black">10 de Octubre de 2026</td>
+                <td style="border: 1px solid black">Programada</td>
+            </tr>
+            
+            <tr>
+              <td style="border: 1px solid black;">2.</td>
+              <td style="border: 1px solid black;">
+              Cita de valoración con el cliente: Carlos Hernández,
+              Unidad: Nissan, Versa 2021
+              </td>
+             <td style="border: 1px solid black;">
+             El cliente solicita una revisión del sistema de frenos
+              debido a un ruido al momento de frenar.
+              </td>
+              <td style="border: 1px solid black;">
+              12 de Octubre de 2026
+              </td>
+             <td style="border: 1px solid black;">
+               Atendida
+              </td>
+         </tr>
+
+
+<tr>
+    <td style="border: 1px solid black;">4.</td>
+    <td style="border: 1px solid black;">
+        Cita de valoración con la cliente: Alejandra Romero,
+        Unidad: Toyota, Hilux 2012
+    </td>
+    <td style="border: 1px solid black;">
+        El cliente solicita una revisión del cuerpo de aceleración
+        de la unidad para posible mantenimiento correctivo.
+    </td>
+    <td style="border: 1px solid black;">16 de Octubre de 2026</td>
+    <td style="border: 1px solid black;">Cancelada</td>
+</tr>
+
+<tr>
+    <td style="border: 1px solid black;">5.</td>
+    <td style="border: 1px solid black;">
+        Cita de valoración con la cliente: Alejandra Romero,
+        Unidad: Toyota, Hilux 2012
+    </td>
+    <td style="border: 1px solid black;">
+        El cliente solicita una revisión del cuerpo de aceleración
+        de la unidad para posible mantenimiento correctivo.
+    </td>
+    <td style="border: 1px solid black;">20 de Octubre de 2026</td>
+    <td style="border: 1px solid black;">Reprogramada</td>
+</tr>
+
+           </table>
+    </fieldset>
+</form>
+
+<fieldset>
+    <legend>Configuraciones de la Interfaz:</legend>
+
+    <label for="fontColor">Color de la Fuente</label>
+    <input type="color" id="fontColor">
+
+    <br>
+
+    <label for="backgroundColor">Color de Fondo</label>
+    <input type="color" id="backgroundColor" value="#CCC">
+</fieldset>
 
 </main>
 </body>
