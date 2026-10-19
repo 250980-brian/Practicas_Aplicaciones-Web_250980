@@ -95,7 +95,8 @@
                 <label for="confirmarContrasena"> Confimar Contraseña: </label>
                 <input type="password" id="confirmarContrasena" placeholder="***********" required> 
             </fieldset>
-
+        </form>
+        
             <fieldset>
                 <legend>Datos de Ubicación</legend>
 
@@ -162,63 +163,33 @@ Acepto términos y condiciones del uso de la plataforma MecaGest.
 
             <tr>
                 <td style="border: 1px solid black">1.</td>
-                <td style="border: 1px solid black">
-                    Cita de entrega de unidad reparada con el cliente: Mauricio Mejía,
-                    Unidad: Volkswagen, Jetta 2020
-                </td>
-                <td style="border: 1px solid black">
-                    Se realizó un cambio de bujías, la unidad está lista para entrega
-                </td>
+                <td style="border: 1px solid black"> Cita de entrega de unidad reparada con el cliente: Mauricio Mejía,  Unidad: Volkswagen, Jetta 2020 </td>
+                <td style="border: 1px solid black"> Se realizó un cambio de bujías, la unidad está lista para entrega</td>
                 <td style="border: 1px solid black">10 de Octubre de 2026</td>
                 <td style="border: 1px solid black">Programada</td>
             </tr>
             
             <tr>
-              <td style="border: 1px solid black;">2.</td>
-              <td style="border: 1px solid black;">
-              Cita de valoración con el cliente: Carlos Hernández,
-              Unidad: Nissan, Versa 2021
-              </td>
-             <td style="border: 1px solid black;">
-             El cliente solicita una revisión del sistema de frenos
-              debido a un ruido al momento de frenar.
-              </td>
-              <td style="border: 1px solid black;">
-              12 de Octubre de 2026
-              </td>
-             <td style="border: 1px solid black;">
-               Atendida
-              </td>
-         </tr>
-
-
-<tr>
-    <td style="border: 1px solid black;">4.</td>
-    <td style="border: 1px solid black;">
-        Cita de valoración con la cliente: Alejandra Romero,
-        Unidad: Toyota, Hilux 2012
-    </td>
-    <td style="border: 1px solid black;">
-        El cliente solicita una revisión del cuerpo de aceleración
-        de la unidad para posible mantenimiento correctivo.
-    </td>
-    <td style="border: 1px solid black;">16 de Octubre de 2026</td>
-    <td style="border: 1px solid black;">Cancelada</td>
-</tr>
-
-<tr>
-    <td style="border: 1px solid black;">5.</td>
-    <td style="border: 1px solid black;">
-        Cita de valoración con la cliente: Alejandra Romero,
-        Unidad: Toyota, Hilux 2012
-    </td>
-    <td style="border: 1px solid black;">
-        El cliente solicita una revisión del cuerpo de aceleración
-        de la unidad para posible mantenimiento correctivo.
-    </td>
-    <td style="border: 1px solid black;">20 de Octubre de 2026</td>
-    <td style="border: 1px solid black;">Reprogramada</td>
-</tr>
+                <td style="border: 1px solid black;">2.</td>
+                <td style="border: 1px solid black;"> Cita de valoración con el cliente: Carlos Hernández,Unidad: Nissan, Versa 2021</td>
+                <td style="border: 1px solid black;">El cliente solicita una revisión del sistema de frenos debido a un ruido al momento de frenar.</td>
+                <td style="border: 1px solid black;">12 de Octubre de 2026</td>
+                <td style="border: 1px solid black;">Atendida</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid black;">4.</td>
+                <td style="border: 1px solid black;">Cita de valoración con la cliente: Alejandra Romero, Unidad: Toyota, Hilux 2012</td>
+                <td style="border: 1px solid black;">El cliente solicita una revisión del cuerpo de aceleración de la unidad para posible mantenimiento correctivo.</td>
+                <td style="border: 1px solid black;">16 de Octubre de 2026</td>
+                <td style="border: 1px solid black;">Cancelada</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid black;">5.</td>
+                <td style="border: 1px solid black;">  Cita de valoración con la cliente: Alejandra Romero, Unidad: Toyota, Hilux 2012 </td>
+                <td style="border: 1px solid black;"> El cliente solicita una revisión del cuerpo de aceleración de la unidad para posible mantenimiento correctivo.</td>
+                <td style="border: 1px solid black;">20 de Octubre de 2026</td>
+                <td style="border: 1px solid black;">Reprogramada</td>
+            </tr>
 
            </table>
     </fieldset>
@@ -236,6 +207,122 @@ Acepto términos y condiciones del uso de la plataforma MecaGest.
     <input type="color" id="backgroundColor" value="#CCC">
 </fieldset>
 
+    <fieldset>
+        <legend>Configuración de Mi cuenta/perfil: </legend>
+        <label for="userPhoto">Foto de Perfil</label>
+        <input type="file" id="userPhoto" accept="image/*">
+        <br>
+        <input type="image" id="buttonNext" src="assets/boton.gif" alt="SIguiente" width="50" height="50">
+        <br>
+        <input type="hidden" id="userId" value="25XXXX">
+    </fieldset>
+
+    <fieldset>
+        <legend>Datos Fiscales:</legend>
+        <label for="rfc">Registro Federal de Causantes (RFC): </label>
+        <input type="text" id="rfc" maxlength="13" placeholder="RACBXXXXXXX">
+        <br>
+        <label for="fiscalSituacion">Constancia de Situación Fiscal: </label>
+        <input type="file" id="fiscalSituacion" accept=".pdf">
+        <input type="hidden" id="userId" value="25XXXX">
+    </fieldset>
+
+    <fieldset>
+        <legend>Solicitud de Cita: </legend>
+        <label for="dateAppoiment">Fecha de la Cita:</label>
+        <input type="datetime-local" id="dateAppoiment">
+        <br>
+        <label for="descriptionText">Descripción de la Cita:</label>
+        <textarea id="descripcionText"></textarea>
+        <br>
+    </fieldset>
+
+    <fieldset>
+        <legend>Solicitud de Herramientas para Servicio Mécanico: </legend>
+        <label for="resourceCategory">Categoria de Recurso:</label>
+        <input type="radio" id="ressourceRefaction" name="ressourceCategory" value="refaccion">Refacción
+        <input type="radio" id="ressourceTool" name="ressourceCategory" value="tool">Herramienta
+        <br>
+        <label for="toolName">Elige la pieza:</label>
+        <select>
+            <optgroup label="Piezas de Motor">
+                <option value="bujia">Bujía</option>
+                <option value="filtro_aceite">Filtro de aceite</option>
+                <option value="banda_distribucion">Banda de distribución</option>
+            </optgroup>
+            <optgroup label="Piezas de Transmisión">
+                <option value="disco_embrague">Disco de embrague</option>
+                <option value="collarin">Collarín de embrague</option>
+                <option value="junta_homocinetica">Junta homocinética</option>
+                <option value="semieje">Semieje de transmisión</option>
+            </optgroup>
+            <optgroup label="Piezas de Suspensión">
+                <option value="amortiguador">Amortiguador</option>
+                <option label="rotula">Rótula de suspensión</option>
+            </optgroup>
+            <optgroup label="Llaves y Herramientas Especializadas">
+                <option value="llave_combinada">Llave combinada</option>
+                <option value="llave_torx">Llave Torx</option>
+                <option value="llave_dinaometrica">Llave dinaometrica</option>
+                <option value="compresor_resortes">Compresor de Resortes</option>
+                <option value="scanner_obd2">Escáner automotriz OBD-II</option>
+            </optgroup>
+        </select>
+        </select>
+        <label for="toolQuantity">Cantidad:</label>
+        <input type="number" id="toolQuantity" min="1" max="10">
+        <button id="requestTool">Solicitar Herramienta</button>
+        <br>
+
+        <table style="border: 1px solid black">
+            <tr>
+                <th style="border: 1px solid black">No.</th>
+                <th style="border: 1px solid black">Herramienta</th>
+                <th style="border: 1px solid black">Categoría</th>
+                <th style="border: 1px solid black">Cantidad</th>
+                <th style="border: 1px solid black">Unidad</th>
+            </tr>
+            <tr>
+                <td style="border: 1px solid black">1.</td>
+                <td style="border: 1px solid black">
+                    Llave combinada
+                </td>
+                <td style="border: 1px solid black">
+                    Herramienta manual
+                </td>
+                <td style="border: 1px solid black">4</td>
+                <td style="border: 1px solid black">Piezas</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid black">2.</td>
+                <td style="border: 1px solid black"> Llave dinamométrica</td>
+                <td style="border: 1px solid black">Herramienta especializada </td>
+                <td style="border: 1px solid black">2</td>
+                <td style="border: 1px solid black">Piezas</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid black">3.</td>
+                <td style="border: 1px solid black">Extractor de Poleas </td>
+                <td style="border: 1px solid black"> Herramienta especializada </td>
+                <td style="border: 1px solid black">1</td>
+                <td style="border: 1px solid black">Juego</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid black">4.</td>
+                <td style="border: 1px solid black">Llave Torx</td>
+                <td style="border: 1px solid black"> Herramienta manual </td>
+                <td style="border: 1px solid black">3</td>
+                <td style="border: 1px solid black">Juegos</td>
+            </tr>
+            <tr style="white-space: nowrap;"> 
+                <td style="border: 1px solid black;"></td> 
+                <td style="border: 1px solid black;"></td> 
+                <td style="border: 1px solid black;">Total de unidades</td> 
+                <td style="border: 1px solid black;">10</td> 
+                <td style="border: 1px solid black;">-</td> 
+            </tr>
+
+    </fieldset>
 </main>
 </body>
 </html>
