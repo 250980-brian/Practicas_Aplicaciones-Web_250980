@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MecaGest: Formulario de Reagistro de Nuevos Usuarios - M250980 </title>
+     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <header>
@@ -77,7 +78,19 @@
             <label for="horarioContacto"> Favor de contactar en el horario: </label>
             <input type="time" id="horarioContacto" placeholder="9:00">
             <input type="time" id="horarioContacto" placeholder="18:00"> 
-
+            <br>
+            <h4>Redes Sociales</h4>
+            <input type="checkbox" id="socialNetworks">
+            <label for="urlFacebook">Facebook:</label>
+            <input type="url" placeholder="http://www.facebook.com/userName">
+            <br>
+            <input type="checkbox" id="socialNetworks">
+            <label for="urlFacebook">Linkedn:</label>
+            <input type="url" placeholder="http://www.linkdn.com/userName">
+            <br>
+            <input type="checkbox" id="socialNetworks">
+            <label for="urlFacebook">Whatsapp: (Cargar Qr)</label>
+            <input type="file" id="whatsAppQr" accept="image/*">
             </fieldset>
 
             <fieldset>
@@ -141,9 +154,13 @@ Acepto términos y condiciones del uso de la plataforma MecaGest.
     <fieldset>
         <legend>Visualización de Citas por Mes:</legend>
 
-        <label for="mesCitas">Por favor elige el mes:</label>
-        <input type="month" id="mesCitas">
-
+        <label for="mesCitas">Por favor elige el filtro: </label>
+        <input type="radio" value="Month" name="appoimentFilter" id="appoimentByMonth" checked>Mes
+        <input type="radio" value="Month" name="appoimentFilter" id="appoimentByWeek">Semana
+        <br>
+        <input type="month">
+        <br>
+        <input type="week" disabled>
         <button id="verCitas">Ver Citas</button>
 
         <br>
@@ -205,6 +222,10 @@ Acepto términos y condiciones del uso de la plataforma MecaGest.
 
     <label for="backgroundColor">Color de Fondo</label>
     <input type="color" id="backgroundColor" value="#CCC">
+    <br>
+    <label for="soundsVolume">Volumen de reproducciòn de Sonidos</label>
+    <input type="range" id="soundsVolume" min="0" max="100" value="80">
+    <button id="muteSounds">Silenciar sonidos</button>
 </fieldset>
 
     <fieldset>
@@ -231,6 +252,16 @@ Acepto términos y condiciones del uso de la plataforma MecaGest.
         <legend>Solicitud de Cita: </legend>
         <label for="dateAppoiment">Fecha de la Cita:</label>
         <input type="datetime-local" id="dateAppoiment">
+        <br>
+        <label for="locations">Elige la sucursal:</label>
+        <input list="locationsList" placeholder="Busca tu sucursal preferida...">
+        <datalist id="locationsList">
+            <option>Xicotepec, Centro</option>
+            <option>Xicotepec, El Tabacal</option>
+            <option>San Isidro, Tierra Negra</option>
+            <option>Necaxa, Canaditas</option>
+            <option>Huauchinango, Petrolera 1</option>
+        </datalist>
         <br>
         <label for="descriptionText">Descripción de la Cita:</label>
         <textarea id="descripcionText"></textarea>
