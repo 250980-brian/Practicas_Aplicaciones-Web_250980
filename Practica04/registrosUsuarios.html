@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MecaGest: Formulario de Reagistro de Nuevos Usuarios - M250980 </title>
-     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <!--VINCULACIÓN DE JAVASCRIPT -->
+    <script src="js/script.js" defer></script>
 </head>
 <body>
     <header>
@@ -55,9 +57,12 @@
 
             <br>
 
-            <label for = "Fecha Nacimiento"> Fecha de Nacimiento: </label>
-            <input type ="date" id="Fecha Nacimiento"> 
+           <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+           <input type="date" id="fechaNacimiento">
 
+           <p id="resultadoEdad">
+             Selecciona una fecha para calcular tu edad.
+           </p>
             </fieldset>
 
             <br>    
@@ -137,8 +142,8 @@
                 <input type="text" id="codigoPostal" placeholder="78000">
 
             </fieldset>
- <input type="checkbox" value="validado">
-Acepto términos y condiciones del uso de la plataforma MecaGest.
+                <input type="checkbox" value="validado">
+              Acepto términos y condiciones del uso de la plataforma MecaGest.
 
 <br><br>
 

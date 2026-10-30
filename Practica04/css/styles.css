@@ -327,3 +327,25 @@ input:disabled {
   cursor: not-allowed;
   border-color: var(--border-color) !important;
 }
+
+/* ==========================================================================
+   6. VALIDACIÓN DE FECHA DE NACIMIENTO
+   ========================================================================== */
+
+/* Mensaje para personas mayores de edad */
+.edad-estado--mayor {
+    color: green;
+    font-weight: bold;
+}
+
+/* Mensaje para personas menores de edad */
+.edad-estado--menor {
+    color: orange;
+    font-weight: bold;
+}
+
+/* Mensaje cuando se selecciona una fecha futura */
+.edad-estado--error {
+    color: red;
+    font-weight: bold;
+}
