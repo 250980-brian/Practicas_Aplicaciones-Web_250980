@@ -1,54 +1,149 @@
-// 1. Imprimir el mensaje en la Consola de Depuración
-console.log("Hola Mundo , desde JavaScript");
+document.addEventListener("DOMContentLoaded", function () {
+    console.log("MecaGest cargado correctamente");
 
-// El atributo defer del <script> permite obtener estos elementos del HTML.
-const fechaNacimiento = document.getElementById("fechaNacimiento");
-const resultadoEdad = document.getElementById("resultadoEdad");
+    // 1. Subrayado automático al escribir y limpieza de marcas de error
+    const campos = document.querySelectorAll("input, select, textarea");
 
-// Se ejecuta al seleccionar o modificar una fecha.
-fechaNacimiento.addEventListener("change", function () {
-  // Limpiamos los colores utilizados en la validación anterior.
-  resultadoEdad.classList.remove(
-    "edad-estado--mayor",
-    "edad-estado--menor",
-    "edad-estado--error"
-  );
+    function evaluarCampo(input) {
+        if (input.value && input.value.trim() !== "") {
+            input.classList.add("campo-lleno");
+            input.classList.remove("campo-error");
 
-  // Si el usuario borra la fecha, mostramos el estado inicial.
-  if (fechaNacimiento.value === "") {
-    resultadoEdad.textContent = "Selecciona una fecha para calcular tu edad.";
-    return;
-  }
+            // Eliminar mensaje de error individual si existe
+            const contenedor = input.closest("div") || input.parentNode;
+            const errorMsg = contenedor.querySelector(".mensaje-error-campo");
+            if (errorMsg) errorMsg.remove();
+        } else {
+            input.classList.remove("campo-lleno");
+        }
+    }
 
-  // Un input date devuelve su valor con formato AAAA-MM-DD.
-  const [anio, mes, dia] = fechaNacimiento.value.split("-").map(Number);
-  const nacimiento = new Date(anio, mes - 1, dia); // Meses: 0 = enero.
-  const hoy = new Date();
-  hoy.setHours(0, 0, 0, 0); // Comparar fechas, no horas.
+    campos.forEach(campo => {
+        evaluarCampo(campo);
+        campo.addEventListener("input", () => evaluarCampo(campo));
+        campo.addEventListener("change", () => evaluarCampo(campo));
+    });
 
-  // No es posible calcular una edad con una fecha futura.
-  if (nacimiento > hoy) {
-    resultadoEdad.textContent = "Error: no se puede calcular la edad con los datos elegidos. La fecha es futura.";
-    resultadoEdad.classList.add("edad-estado--error");
-    return;
-  }
+    // 2. Cálculo dinámico de Edad
+    const fechaNacimiento = document.getElementById("fechaNacimiento");
+    const resultadoEdad = document.getElementById("resultadoEdad");
 
-  // Calcular la edad de forma exacta
-  let edad = hoy.getFullYear() - nacimiento.getFullYear();
-  const diferenciaMeses = hoy.getMonth() - nacimiento.getMonth();
-  const diferenciaDias = hoy.getDate() - nacimiento.getDate();
+    if (fechaNacimiento && resultadoEdad) {
+        fechaNacimiento.addEventListener("change", function () {
+            resultadoEdad.classList.remove("edad-estado--mayor", "edad-estado--menor", "edad-estado--error");
 
-  // Ajustar la edad si aún no ha pasado su cumpleaños este año
-  if (diferenciaMeses < 0 || (diferenciaMeses === 0 && diferenciaDias < 0)) {
-    edad--;
-  }
+            if (fechaNacimiento.value === "") {
+                resultadoEdad.textContent = "Selecciona una fecha para calcular tu edad.";
+                return;
+            }
 
-  // Validar si es mayor o menor de edad
-  if (edad >= 18) {
-    resultadoEdad.textContent = `Eres mayor de edad. Tienes ${edad} años.`;
-    resultadoEdad.classList.add("edad-estado--mayor");
-  } else {
-    resultadoEdad.textContent = `Eres menor de edad. Tienes ${edad} años.`;
-    resultadoEdad.classList.add("edad-estado--menor");
-  }
+            const [anio, mes, dia] = fechaNacimiento.value.split("-").map(Number);
+            const nacimiento = new Date(anio, mes - 1, dia);
+            const hoy = new Date();
+            hoy.setHours(0, 0, 0, 0);
+
+            if (nacimiento > hoy) {
+                resultadoEdad.textContent = "Error: no se puede calcular la edad con la fecha elegida (es futura).";
+                resultadoEdad.classList.add("edad-estado--error");
+                return;
+            }
+
+            let edad = hoy.getFullYear() - nacimiento.getFullYear();
+            const diferenciaMeses = hoy.getMonth() - nacimiento.getMonth();
+            const diferenciaDias = hoy.getDate() - nacimiento.getDate();
+
+            if (diferenciaMeses < 0 || (diferenciaMeses === 0 && diferenciaDias < 0)) {
+                edad--;
+            }
+
+            if (edad >= 18) {
+                resultadoEdad.textContent = `Eres mayor de edad. Tienes ${edad} años.`;
+                resultadoEdad.classList.add("edad-estado--mayor");
+            } else {
+                resultadoEdad.textContent = `Eres menor de edad. Tienes ${edad} años.`;
+                resultadoEdad.classList.add("edad-estado--menor");
+            }
+        });
+    }
+
+    // 3. Envío final simulado del formulario
+    const form = document.getElementById("registroForm");
+    const mensajeSimulacion = document.getElementById("mensajeSimulacion");
+
+    if (form) {
+        form.addEventListener("submit", function (e) {
+            e.preventDefault(); // Detener recarga de la página
+
+            if (validarPasoActual(pasoActual)) {
+                if (mensajeSimulacion) {
+                    mensajeSimulacion.style.display = "block";
+                    mensajeSimulacion.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        });
+    }
 });
+
+// 4. Variables globales y funciones de navegación del Wizard
+let pasoActual = 0;
+
+function validarPasoActual(indexPaso) {
+    const pasos = document.querySelectorAll(".wizard-paso");
+    if (!pasos[indexPaso]) return true;
+
+    // Detectar campos obligatorios que tengan la propiedad 'required'
+    const requeridos = pasos[indexPaso].querySelectorAll("[required]");
+    let esValido = true;
+
+    requeridos.forEach(input => {
+        // Seleccionar contenedor adecuado para el mensaje de error
+        const contenedor = input.closest("div") || input.parentNode;
+        const errorPrevio = contenedor.querySelector(".mensaje-error-campo");
+        if (errorPrevio) errorPrevio.remove();
+
+        let campoVacio = false;
+
+        if (input.type === "checkbox") {
+            campoVacio = !input.checked;
+        } else {
+            campoVacio = !input.value || input.value.trim() === "";
+        }
+
+        if (campoVacio) {
+            esValido = false;
+            input.classList.add("campo-error");
+            input.classList.remove("campo-lleno");
+
+            // Insertar advertencia visual justo después del campo
+            const errorText = document.createElement("span");
+            errorText.className = "mensaje-error-campo";
+            errorText.textContent = "Este campo es obligatorio.";
+            input.after(errorText);
+        } else {
+            input.classList.remove("campo-error");
+        }
+    });
+
+    return esValido;
+}
+
+function moverPaso(incremento) {
+    const pasos = document.querySelectorAll(".wizard-paso");
+    const indicadores = document.querySelectorAll(".wizard-paso-item");
+
+    // Impedir avance si hay campos requeridos sin llenar
+    if (incremento > 0 && !validarPasoActual(pasoActual)) {
+        return;
+    }
+
+    pasos[pasoActual].classList.remove("paso-activo");
+    if (indicadores[pasoActual]) indicadores[pasoActual].classList.remove("activo");
+
+    pasoActual += incremento;
+
+    if (pasoActual < 0) pasoActual = 0;
+    if (pasoActual >= pasos.length) pasoActual = pasos.length - 1;
+
+    pasos[pasoActual].classList.add("paso-activo");
+    if (indicadores[pasoActual]) indicadores[pasoActual].classList.add("activo");
+}
