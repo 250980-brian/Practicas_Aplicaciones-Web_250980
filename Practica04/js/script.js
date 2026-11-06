@@ -66,25 +66,74 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // 3. Envío final simulado del formulario
+    // 3. Vista previa imagen estricta
+    const qrInput = document.getElementById("whatsAppQr");
+    if (qrInput) {
+        qrInput.addEventListener("change", function(event) {
+            const input = event.target;
+            const imgPreview = document.getElementById('qrPreview');
+            const placeholder = document.getElementById('preview-placeholder');
+
+            if (input.files && input.files[0]) {
+                const file = input.files[0];
+                
+                // Validación estricta: Solo permitir imágenes
+                if (!file.type.startsWith('image/')) {
+                    alert('Error: Solo se permiten archivos de imagen (PNG, JPG, JPEG).');
+                    input.value = ''; // Limpia el archivo incorrecto
+                    imgPreview.src = "";
+                    imgPreview.classList.add('oculta');
+                    placeholder.classList.remove('oculta');
+                    return;
+                }
+
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    imgPreview.src = e.target.result;
+                    imgPreview.classList.remove('oculta');
+                    placeholder.classList.add('oculta');
+                }
+                reader.readAsDataURL(file);
+            } else {
+                imgPreview.src = "";
+                imgPreview.classList.add('oculta');
+                placeholder.classList.remove('oculta');
+            }
+        });
+    }
+
+    // 4. Submit form
     const form = document.getElementById("registroForm");
     const mensajeSimulacion = document.getElementById("mensajeSimulacion");
 
     if (form) {
         form.addEventListener("submit", function (e) {
-            e.preventDefault(); // Detener recarga de la página
+            e.preventDefault(); // Evita que la página se recargue
 
+            // Valida que el paso actual (Ubicación) esté correcto
             if (validarPasoActual(pasoActual)) {
                 if (mensajeSimulacion) {
+                    // Quitamos la clase oculta para vencer el !important
+                    mensajeSimulacion.classList.remove("oculta");
                     mensajeSimulacion.style.display = "block";
-                    mensajeSimulacion.scrollIntoView({ behavior: 'smooth' });
+                    
+                    // Opcional: Puedes agregar un estilo visual de éxito
+                    mensajeSimulacion.style.padding = "15px";
+                    mensajeSimulacion.style.backgroundColor = "#e6f4ea";
+                    mensajeSimulacion.style.color = "#137333";
+                    mensajeSimulacion.style.borderRadius = "8px";
+                    mensajeSimulacion.style.marginBottom = "20px";
+                    mensajeSimulacion.style.fontWeight = "bold";
+
+                    // Hacemos scroll suave hacia el mensaje para que el usuario lo vea
+                    mensajeSimulacion.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }
             }
         });
     }
 });
 
-// 4. Variables globales y funciones de navegación del Wizard
+// 5. Variables globales y funciones de navegación del Wizard
 let pasoActual = 0;
 
 function validarPasoActual(indexPaso) {
@@ -94,6 +143,8 @@ function validarPasoActual(indexPaso) {
     // Detectar campos obligatorios que tengan la propiedad 'required'
     const requeridos = pasos[indexPaso].querySelectorAll("[required]");
     let esValido = true;
+    let algunError = false;
+    const alertaGlobal = document.getElementById("alerta-global");
 
     requeridos.forEach(input => {
         // Seleccionar contenedor adecuado para el mensaje de error
@@ -111,6 +162,7 @@ function validarPasoActual(indexPaso) {
 
         if (campoVacio) {
             esValido = false;
+            algunError = true;
             input.classList.add("campo-error");
             input.classList.remove("campo-lleno");
 
@@ -123,6 +175,34 @@ function validarPasoActual(indexPaso) {
             input.classList.remove("campo-error");
         }
     });
+    
+    // Validación adicional de contraseñas en el paso 3 (índice 2)
+    if (indexPaso === 2) {
+        const password = document.getElementById("contrasena");
+        const confirmPassword = document.getElementById("confirmarContrasena");
+        const errorText = document.getElementById("password-error");
+        
+        if (password.value && confirmPassword.value && password.value !== confirmPassword.value) {
+            esValido = false;
+            algunError = true;
+            confirmPassword.classList.add("campo-error");
+            if(errorText) {
+                errorText.classList.remove("oculta");
+                errorText.style.display = "block";
+            }
+        } else if (errorText) {
+            errorText.classList.add("oculta");
+            errorText.style.display = "none";
+        }
+    }
+
+    if (alertaGlobal) {
+        if (algunError) {
+            alertaGlobal.classList.remove("oculta");
+        } else {
+            alertaGlobal.classList.add("oculta");
+        }
+    }
 
     return esValido;
 }
@@ -131,9 +211,15 @@ function moverPaso(incremento) {
     const pasos = document.querySelectorAll(".wizard-paso");
     const indicadores = document.querySelectorAll(".wizard-paso-item");
 
-    // Impedir avance si hay campos requeridos sin llenar
+    // Impedir avance si hay campos requeridos sin llenar o con errores
     if (incremento > 0 && !validarPasoActual(pasoActual)) {
         return;
+    }
+    
+    // Al retroceder o avanzar correctamente, ocultar alerta global
+    const alertaGlobal = document.getElementById("alerta-global");
+    if (alertaGlobal) {
+        alertaGlobal.classList.add("oculta");
     }
 
     pasos[pasoActual].classList.remove("paso-activo");

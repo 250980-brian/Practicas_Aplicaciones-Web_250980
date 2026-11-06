@@ -351,7 +351,7 @@ input:disabled {
 }
 
 /* ==========================================================================
-   ESTILOS GENERALES Y CAMPOS SIN BORDES (SOLO SUBRAYADO)
+   7. ESTILOS GENERALES Y CAMPOS SIN BORDES (SOLO SUBRAYADO)
    ========================================================================== */
 
 /* Removemos bordes completos y dejamos solo subrayado inferior */
@@ -405,7 +405,7 @@ textarea:focus {
 }
 
 /* ==========================================================================
-   ESTILOS DEL WIZARD (BARRA SUPERIOR Y PASOS)
+   8. ESTILOS DEL WIZARD (BARRA SUPERIOR Y PASOS)
    ========================================================================== */
 
 /* Ocultar pasos del wizard por defecto */
@@ -443,14 +443,54 @@ textarea:focus {
     border-bottom-color: #0284c7;
 }
 
-/* Mensaje final al enviar la solicitud */
-.mensaje-simulacion {
-    display: none;
-    background-color: #f1f5f9;
-    color: #1e293b;
-    font-weight: bold;
-    padding: 14px 20px;
+/* ==========================================================================
+   9. VISTAS PREVIAS Y ELEMENTOS DE APOYO VISUAL
+   ========================================================================== */
+   
+.contenedor-imagen-qr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed #cbd5e1;
+    border-radius: 12px;
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: #f8fafc;
+    min-height: 180px;
+}
+
+.contenedor-imagen-qr img {
+    max-width: 100%;
+    max-height: 200px;
+    object-fit: contain;
     border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.placeholder-texto {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    text-align: center;
+    font-style: italic;
+}
+
+/* ==========================================================================
+   10. UTILIDADES
+   ========================================================================== */
+
+.oculta {
+    display: none !important;
+}
+
+/* Alerta de Error Global */
+.alerta-error {
+    background-color: #fef2f2;
+    border: 1px solid #f87171;
+    color: #b91c1c;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: bold;
     margin-bottom: 20px;
-    border-left: 4px solid #0284c7;
+    text-align: center;
 }
