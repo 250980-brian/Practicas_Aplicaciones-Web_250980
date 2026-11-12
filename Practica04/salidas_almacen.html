@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MecaGest: Salidas de almacén</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>MecaGest</h1>
+        <h2>Salidas de almacén</h2>
+        <p>Solicitud de herramientas y refacciones asociadas a órdenes de servicio; datos de práctica.</p>
+    </header>
+
+    <nav class="menu-nav" aria-label="Módulos">
+        <a href="registroUsuarios.html"><i class="fas fa-user-plus"></i> Registro de usuarios</a>
+        <a href="proximas_citas.html"><i class="fas fa-calendar-check"></i> Próximas citas</a>
+        <a href="configuracion.html"><i class="fas fa-gear"></i> Configuración</a>
+        <a href="salidas_almacen.html" class="activo"><i class="fas fa-screwdriver-wrench"></i> Salidas de almacén</a>
+    </nav>
+
+    <main>
+        <fieldset>
+            <legend>Solicitud de herramientas y refacciones</legend>
+            <label>Categoría de recurso:</label>
+            <input type="radio" id="ressourceRefaction" name="ressourceCategory" value="refaccion" checked>
+            <label for="ressourceRefaction">Refacción</label>
+            <input type="radio" id="ressourceTool" name="ressourceCategory" value="tool">
+            <label for="ressourceTool">Herramienta</label>
+            <br>
+            <label for="toolSelect">Elige la pieza o herramienta:</label>
+            <select id="toolSelect"></select>
+            <label for="toolQuantity">Cantidad:</label>
+            <input type="number" id="toolQuantity" min="1" max="10" value="1">
+            <button type="button" id="requestTool" class="btn-primary">Solicitar herramienta</button>
+
+            <h4>Herramientas para la orden de servicio <span class="etiqueta-tipo">4 conceptos</span></h4>
+            <p class="ayuda">Inventario de ejemplo sin conexión a base de datos.</p>
+            <table>
+                <tr><th>No.</th><th>Herramienta</th><th>Categoría</th><th>Cantidad</th><th>Unidad</th></tr>
+                <tr><td>1.</td><td>Llave combinada</td><td>Herramienta manual</td><td>4</td><td>Piezas</td></tr>
+                <tr><td>2.</td><td>Llave dinamométrica</td><td>Herramienta especializada</td><td>2</td><td>Piezas</td></tr>
+                <tr><td>3.</td><td>Extractor de Poleas</td><td>Herramienta especializada</td><td>1</td><td>Juego</td></tr>
+                <tr><td>4.</td><td>Llave Torx</td><td>Herramienta manual</td><td>3</td><td>Juegos</td></tr>
+                <tr style="white-space: nowrap;"><td></td><td></td><td><strong>Total de unidades</strong></td><td><strong>10</strong></td><td>-</td></tr>
+            </table>
+            <p class="ayuda">El botón de solicitud es únicamente visual, todavía no agrega elementos a la tabla.</p>
+        </fieldset>
+    </main>
+
+</body>
+</html>

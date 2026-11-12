@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MecaGest: Formulario de Registro de Nuevos Usuarios - M250980</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="data/domicilios.js"></script>
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>MecaGest</h1>
+        <h2>Registro de Nuevos Usuarios</h2>
+        <p>Complete los campos para solicitar una cuenta en el sistema.</p>
+    </header>
+
+    <nav class="menu-nav" aria-label="Módulos">
+        <a href="registroUsuarios.html" class="activo"><i class="fas fa-user-plus"></i> Registro de usuarios</a>
+        <a href="proximas_citas.html"><i class="fas fa-calendar-check"></i> Próximas citas</a>
+        <a href="configuracion.html"><i class="fas fa-gear"></i> Configuración</a>
+        <a href="salidas_almacen.html"><i class="fas fa-screwdriver-wrench"></i> Salidas de almacén</a>
+    </nav>
+
+    <main>
+        <div id="alerta-global" class="alerta oculta">
+            <i class="fas fa-exclamation-circle"></i> Revisa los campos señalados antes de continuar.
+        </div>
+
+        <div class="wizard-bar">
+            <div class="wizard-paso-item activo" id="ind-0"><i class="fas fa-user"></i></div>
+            <div class="line"></div>
+            <div class="wizard-paso-item" id="ind-1"><i class="fas fa-address-book"></i></div>
+            <div class="line"></div>
+            <div class="wizard-paso-item" id="ind-2"><i class="fas fa-lock"></i></div>
+            <div class="line"></div>
+            <div class="wizard-paso-item" id="ind-3"><i class="fas fa-map-marker-alt"></i></div>
+            <div class="line"></div>
+            <div class="wizard-paso-item" id="ind-4"><i class="fas fa-file-invoice"></i></div>
+        </div>
+
+        <div id="mensajeSimulacion" class="mensaje-simulacion oculta" style="display: none;">
+            ¡Registro revisado! Envío simulado: los datos no se almacenan.
+        </div>
+
+        <form id="registroForm" action="" method="post" novalidate>
+            <!-- PASO 1 -->
+            <fieldset class="wizard-paso paso-activo" id="paso-0">
+                <legend>Datos Personales</legend>
+                <div class="grid-2-col">
+                    <div class="input-group">
+                        <label for="tituloCortesia">Título de Cortesía: </label>
+                        <select id="tituloCortesia">
+                            <option value="">Selecciona una opción</option>
+                            <option>Sr.</option><option>Sra.</option><option>Srita.</option>
+                            <option>Ing.</option><option>Dr.</option><option>Mtro.</option><option>Ninguno</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="nombre">Nombre: </label>
+                        <input type="text" id="nombre" placeholder="Brian Isael" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="AppPaterno">Apellido Paterno: </label>
+                        <input type="text" id="AppPaterno" placeholder="Ramirez" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="AppMaterno">Apellido Materno: </label>
+                        <input type="text" id="AppMaterno" placeholder="Cortes">
+                    </div>
+                    <div class="input-group">
+                        <label for="genero">Género: </label>
+                        <select id="genero">
+                            <option value="">Selecciona una opción</option>
+                            <option value="F">Femenino</option>
+                            <option value="M">Masculino</option>
+                            <option value="X">Prefiero no decirlo</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+                        <input type="date" id="fechaNacimiento">
+                    </div>
+                </div>
+                <p id="resultadoEdad">Selecciona una fecha para calcular tu edad.</p>
+                <div class="btn-group right">
+                    <input type="reset" class="btn-secondary" value="Limpiar">
+                    <button type="button" class="btn-primary" onclick="moverPaso(1)">Siguiente paso &raquo;</button>
+                </div>
+            </fieldset>
+
+            <!-- PASO 2 -->
+            <fieldset class="wizard-paso" id="paso-1">
+                <legend>Datos de Contacto</legend>
+                <div class="grid-2-col">
+                    <div class="input-group">
+                        <label for="correo">Correo Electrónico: *</label>
+                        <input type="email" id="correo" placeholder="marco@ejemplo.com" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="telefono">Número Telefónico: </label>
+                        <input type="tel" id="telefono" placeholder="(55) 1234-5678">
+                    </div>
+                </div>
+
+                <h4>Horario preferido de contacto</h4>
+                <div class="grid-2-col">
+                    <div class="input-group">
+                        <label for="horarioContactoDesde">Desde</label>
+                        <input type="time" id="horarioContactoDesde" value="09:00">
+                    </div>
+                    <div class="input-group">
+                        <label for="horarioContactoHasta">Hasta</label>
+                        <input type="time" id="horarioContactoHasta" value="18:00">
+                    </div>
+                </div>
+
+                <h4>Redes sociales y mensajería</h4>
+                <div class="grid-2-col">
+                    <div class="input-group">
+                        <div>
+                            <input type="checkbox" id="socialFb" data-social="urlFacebook" data-ayuda="ayudaFb">
+                            <label for="socialFb">Facebook</label>
+                        </div>
+                        <input type="url" id="urlFacebook" placeholder="https://facebook.com/usuario" disabled>
+                        <small class="ayuda" id="ayudaFb" data-on="Ya puedes introducir la dirección de tu perfil." data-off="Activa la casilla para habilitar este campo."></small>
+                    </div>
+                    <div class="input-group">
+                        <div>
+                            <input type="checkbox" id="socialLk" data-social="urlLinkedin" data-ayuda="ayudaLk">
+                            <label for="socialLk">LinkedIn</label>
+                        </div>
+                        <input type="url" id="urlLinkedin" placeholder="https://linkedin.com/in/usuario" disabled>
+                        <small class="ayuda" id="ayudaLk" data-on="Ya puedes introducir la dirección de tu perfil." data-off="Activa la casilla para habilitar este campo."></small>
+                    </div>
+                    <div class="input-group span-2">
+                        <div>
+                            <input type="checkbox" id="socialWa" data-social="whatsAppQr" data-ayuda="ayudaWa">
+                            <label for="socialWa">WhatsApp: Adjuntar QR</label>
+                        </div>
+                        <input type="file" id="whatsAppQr" accept="image/*" style="margin-top: 10px;" disabled>
+                        <small class="ayuda" id="ayudaWa" data-on="Selecciona la imagen de tu código QR." data-off="Activa la casilla para habilitar este campo."></small>
+                    </div>
+                </div>
+
+                <div id="preview-container" class="preview-card">
+                    <h4><i class="fas fa-th-large"></i> Vista previa de WhatsApp</h4>
+                    <p class="preview-text">Selecciona un archivo de imagen para visualizar tu código QR.</p>
+                    <div class="preview-box">
+                        <img id="qrPreview" src="" alt="Vista previa QR" class="oculta">
+                        <div id="qrError" class="preview-error oculta"><i class="fas fa-exclamation-circle"></i><br>No se puede mostrar el archivo cargado.</div>
+                        <div id="preview-placeholder">
+                            <i class="fas fa-image fa-3x"></i>
+                            <p style="margin-top: 10px; font-size: 0.85rem;">Ningún archivo seleccionado</p>
+                        </div>
+                    </div>
+                    <div id="qrAcciones" class="preview-acciones oculta">
+                        <span id="qrNombre"></span>
+                        <button type="button" id="quitarQr" class="btn-secondary"><i class="fas fa-times"></i> Quitar archivo</button>
+                    </div>
+                    <p class="preview-note">Solo vista previa local; no se envía al servidor.</p>
+                </div>
+                <div class="btn-group between">
+                    <button type="button" class="btn-secondary" onclick="moverPaso(-1)">&laquo; Anterior</button>
+                    <div style="display:flex; gap:10px;"><input type="reset" class="btn-secondary" value="Limpiar"><button type="button" class="btn-primary" onclick="moverPaso(1)">Siguiente paso &raquo;</button></div>
+                </div>
+            </fieldset>
+
+            <!-- PASO 3 -->
+            <fieldset class="wizard-paso" id="paso-2">
+                <legend>Datos de Acceso</legend>
+                <div class="grid-2-col">
+                    <div class="input-group span-2">
+                        <label for="usuario">Nombre de usuario: *</label>
+                        <input type="text" id="usuario" placeholder="brianisael" autocomplete="username" required>
+                        <small class="ayuda">Utiliza al menos 4 caracteres.</small>
+                    </div>
+                    <div class="input-group">
+                        <label for="contrasena">Contraseña: *</label>
+                        <div class="campo-password">
+                            <input type="password" id="contrasena" placeholder="**********" autocomplete="new-password" required>
+                            <button type="button" class="btn-ojo" data-ojo="contrasena" aria-label="Mostrar contraseña"><i class="fas fa-eye"></i></button>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="confirmarContrasena">Confirmar contraseña: *</label>
+                        <div class="campo-password">
+                            <input type="password" id="confirmarContrasena" placeholder="***********" autocomplete="new-password" required>
+                            <button type="button" class="btn-ojo" data-ojo="confirmarContrasena" aria-label="Mostrar contraseña"><i class="fas fa-eye"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <small class="ayuda">Requisitos: mínimo 6 caracteres, al menos una mayúscula y un símbolo especial. Ambas contraseñas deben coincidir. Validación realizada con expresiones regulares en JavaScript.</small>
+                <div class="btn-group between">
+                    <button type="button" class="btn-secondary" onclick="moverPaso(-1)">&laquo; Anterior</button>
+                    <div style="display:flex; gap:10px;"><input type="reset" class="btn-secondary" value="Limpiar"><button type="button" class="btn-primary" onclick="moverPaso(1)">Siguiente paso &raquo;</button></div>
+                </div>
+            </fieldset>
+
+            <!-- PASO 4 -->
+            <fieldset class="wizard-paso" id="paso-3">
+                <legend>Datos de Ubicación</legend>
+                <div class="grid-2-col">
+                    <div class="input-group span-2">
+                        <label for="direccion">Calle y número: *</label>
+                        <input type="text" id="direccion" placeholder="Ej. Av. Juárez 125, Col. Centro" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="pais">País: *</label>
+                        <input type="text" id="pais" list="listaPaises" value="México" required>
+                        <datalist id="listaPaises"></datalist>
+                    </div>
+                    <div class="input-group">
+                        <label for="estado">Estado / entidad federativa: *</label>
+                        <input type="text" id="estado" list="listaEstados" placeholder="Ej. Puebla" required>
+                        <datalist id="listaEstados"></datalist>
+                    </div>
+                    <div class="input-group">
+                        <label for="ciudad">Ciudad / municipio: *</label>
+                        <input type="text" id="ciudad" list="listaCiudades" placeholder="Ej. Xicotepec" required>
+                        <datalist id="listaCiudades"></datalist>
+                    </div>
+                    <div class="input-group">
+                        <label for="codigoPostal">Código postal:</label>
+                        <input type="text" id="codigoPostal" inputmode="numeric" maxlength="10" placeholder="73080">
+                    </div>
+                </div>
+                <p id="notaCp" class="nota-cp oculta"><i class="fas fa-info-circle"></i> Código postal sugerido para una colonia de ejemplo. Confirma tu CP real antes de continuar.</p>
+                <div class="btn-group between">
+                    <button type="button" class="btn-secondary" onclick="moverPaso(-1)">&laquo; Anterior</button>
+                    <div style="display:flex; gap:10px;"><input type="reset" class="btn-secondary" value="Limpiar"><button type="button" class="btn-primary" onclick="moverPaso(1)">Siguiente paso &raquo;</button></div>
+                </div>
+            </fieldset>
+
+            <!-- PASO 5 -->
+            <fieldset class="wizard-paso" id="paso-4">
+                <legend>Facturación (opcional)</legend>
+                <div class="checkbox-linea">
+                    <input type="checkbox" id="quiereFactura">
+                    <label for="quiereFactura">Deseo proporcionar datos de facturación</label>
+                </div>
+
+                <div id="bloqueFactura" class="grid-2-col">
+                    <div class="input-group">
+                        <label for="rfc">RFC <span id="rfcAst" class="oculta">*</span></label>
+                        <input type="text" id="rfc" maxlength="13" placeholder="Ej. ABCD010203XYZ" data-fiscal>
+                    </div>
+                    <div class="input-group">
+                        <label for="razonSocial">Nombre o razón social</label>
+                        <input type="text" id="razonSocial" placeholder="Nombre para facturación" data-fiscal>
+                    </div>
+                    <div class="input-group">
+                        <label for="regimenFiscal">Régimen fiscal</label>
+                        <select id="regimenFiscal" data-fiscal>
+                            <option value="">Seleccionar régimen</option>
+                            <option value="601">601 · General de Ley Personas Morales</option>
+                            <option value="605">605 · Sueldos y Salarios</option>
+                            <option value="612">612 · Personas Físicas con Actividades Empresariales y Profesionales</option>
+                            <option value="621">621 · Incorporación Fiscal</option>
+                            <option value="626">626 · Régimen Simplificado de Confianza</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="usoCfdi">Uso del CFDI</label>
+                        <select id="usoCfdi" data-fiscal>
+                            <option value="">Seleccionar uso</option>
+                            <option value="G01">G01 · Adquisición de mercancías</option>
+                            <option value="G03">G03 · Gastos en general</option>
+                            <option value="P01">P01 · Por definir</option>
+                            <option value="S01">S01 · Sin efectos fiscales</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="cpFiscal">Código postal fiscal</label>
+                        <input type="text" id="cpFiscal" inputmode="numeric" maxlength="5" placeholder="5 dígitos" data-fiscal>
+                    </div>
+                    <div class="input-group">
+                        <label for="fiscalSituacion">Constancia de situación fiscal (PDF)</label>
+                        <input type="file" id="fiscalSituacion" accept=".pdf" data-fiscal>
+                        <small class="ayuda">Archivo opcional. La carga real y su revisión se implementarán en PHP.</small>
+                    </div>
+                </div>
+                <input type="hidden" id="userIdFiscal" value="25XXXX">
+                <p class="nota-pie">Datos de ejemplo para fines académicos. Antes de una facturación real, deberán comprobarse los catálogos del SAT, el régimen y los requisitos de CFDI vigentes.</p>
+
+                <div class="checkbox-linea">
+                    <input type="checkbox" id="terminos" value="validado" required>
+                    <label for="terminos">Acepto los términos y condiciones de uso de la plataforma MecaGest. *</label>
+                </div>
+                <div class="btn-group between">
+                    <button type="button" class="btn-secondary" onclick="moverPaso(-1)">&laquo; Anterior</button>
+                    <div style="display:flex; gap:10px;"><input type="reset" class="btn-secondary" value="Limpiar"><input type="submit" class="btn-success" value="Enviar Solicitud"></div>
+                </div>
+            </fieldset>
+        </form>
+    </main>
+
+</body>
+</html>
