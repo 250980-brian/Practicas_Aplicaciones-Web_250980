@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MecaGest: Configuración</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>MecaGest</h1>
+        <h2>Configuración</h2>
+        <p>Personalización de interfaz y cuenta. Los cambios permanentes se implementarán con PHP y MySQL.</p>
+    </header>
+
+    <nav class="menu-nav" aria-label="Módulos">
+        <a href="registroUsuarios.html"><i class="fas fa-user-plus"></i> Registro de usuarios</a>
+        <a href="proximas_citas.html"><i class="fas fa-calendar-check"></i> Próximas citas</a>
+        <a href="configuracion.html" class="activo"><i class="fas fa-gear"></i> Configuración</a>
+        <a href="salidas_almacen.html"><i class="fas fa-screwdriver-wrench"></i> Salidas de almacén</a>
+    </nav>
+
+    <main>
+        <fieldset>
+            <legend>Configuración de la Interfaz</legend>
+            <h4>Paleta MecaGest Desktop</h4>
+            <div class="paleta" aria-hidden="true">
+                <span style="background:#0f172a"></span><span style="background:#0284c7"></span>
+                <span style="background:#06b6d4"></span><span style="background:#1e293b"></span><span style="background:#f9f7f4"></span>
+            </div>
+            <label for="fontColor">Color de la Fuente</label>
+            <input type="color" id="fontColor" value="#1e293b">
+            <br>
+            <label for="backgroundColor">Color de Fondo</label>
+            <input type="color" id="backgroundColor" value="#cccccc">
+            <br>
+            <label for="soundsVolume">Volumen de reproducción de Sonidos</label>
+            <input type="range" id="soundsVolume" min="0" max="100" value="80">
+            <div class="marcas-rango"><span>0%</span><span>50%</span></div>
+            <button type="button" id="muteSounds">Silenciar sonidos</button>
+            <p class="ayuda">La selección de colores y el volumen no alteran todavía la interfaz ni el audio.</p>
+        </fieldset>
+
+        <fieldset>
+            <legend>Configuración de Mi cuenta/perfil</legend>
+            <h4>Perfil de MecaGest</h4>
+            <label for="userPhoto">Foto de Perfil</label>
+            <input type="file" id="userPhoto" accept="image/*">
+            <small class="ayuda">Formatos de imagen admitidos por el navegador.</small>
+            <br>
+            <label>Botón gráfico <span class="etiqueta-tipo">input: image</span></label><br>
+            <input type="image" id="buttonNext" src="assets/boton.gif" alt="Siguiente" width="50" height="50" disabled>
+            <small class="ayuda">Control deshabilitado: el envío gráfico se conectará en clases posteriores.</small>
+            <input type="hidden" id="userId" value="25XXXX">
+            <small class="ayuda"><strong>input: hidden</strong> — identificador de ejemplo presente en el código HTML, pero no visible en pantalla.</small>
+            <label>Botón de envío <span class="etiqueta-tipo">input: submit</span></label><br>
+            <input type="submit" id="guardarPerfil" value="Guardar (demostración)" disabled>
+            <small class="ayuda">Deshabilitado hasta conectar persistencia mediante PHP.</small>
+        </fieldset>
+    </main>
+
+</body>
+</html>
